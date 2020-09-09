@@ -10,7 +10,12 @@ import (
 	"github.com/filecoin-project/specs-actors/actors/builtin/verifreg"
 )
 
-const UpgradeBreezeHeight = 0
+var DrandSchedule = map[abi.ChainEpoch]DrandEnum{
+	0: DrandIncentinet,
+	3: DrandMainnet,
+}
+
+const UpgradeBreezeHeight = 1000000000
 const BreezeGasTampingDuration = 0
 
 func init() {
@@ -23,7 +28,7 @@ func init() {
 	BuildType |= Build2k
 }
 
-const BlockDelaySecs = uint64(4)
+const BlockDelaySecs = uint64(30)
 
 const PropagationDelaySecs = uint64(1)
 
